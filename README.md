@@ -1,5 +1,4 @@
 Small Query Script for the Jumpers API.
 ==============================================
 
-TODO: 
-Add graph for the data.
+Separate script to generate a visualization of the Jumpers Data.
