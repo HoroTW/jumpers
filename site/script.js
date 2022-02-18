@@ -9,7 +9,7 @@ $.getJSON("jumpers.json", ).done(function(results) {
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: checkedInC,
-            tension: 0.1
+            tension: 0.2
         }]
     };
 
@@ -28,6 +28,20 @@ function createChart(labels, data) {
         type: 'line',
         data: data,
         options: {
+            scales: {
+                x: {
+                    grace: "2%",
+                    display: true,
+
+                },
+                y: {
+
+                    display: true,
+                    min: 0,
+                    max: 140,
+                }
+            },
+
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
@@ -36,6 +50,7 @@ function createChart(labels, data) {
                         enabled: true,
                         mode: 'x'
                     },
+
                     zoom: {
                         wheel: {
                             enabled: true,
@@ -44,9 +59,9 @@ function createChart(labels, data) {
                             enabled: true
                         },
                         mode: 'x',
-                    }
-                }
-            }
+                    },
+                },
+            },
         }
     };
 
