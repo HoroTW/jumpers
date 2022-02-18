@@ -1,4 +1,4 @@
-$.getJSON("../jumpers.json", ).done(function(results) {
+$.getJSON("jumpers.json", ).done(function(results) {
     const labels = Object.values(results.timestamp);
     const checkedInC = Object.values(results.countCheckedInCustomer);
 
