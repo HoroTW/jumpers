@@ -9,6 +9,7 @@ $.getJSON("jumpers.json", ).done(function(results) {
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: checkedInC,
+            tension: 0.1
         }]
     };
 
@@ -28,7 +29,24 @@ function createChart(labels, data) {
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            plugins: {
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x'
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        mode: 'x',
+                    }
+                }
+            }
         }
     };
     const myChart = new Chart(
