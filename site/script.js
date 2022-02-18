@@ -49,6 +49,9 @@ function createChart(labels, data) {
             }
         }
     };
+
+    Chart.defaults.font.size = 24;
+
     const myChart = new Chart(
         ctx,
         config
