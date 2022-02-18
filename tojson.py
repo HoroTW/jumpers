@@ -14,7 +14,7 @@ while True:
     try:
         print("start refresh")
         data: pd.DataFrame = pd.read_pickle("jumpers.pkl.gzip", compression="gzip")
-        data['timestamp'] = data['timestamp'].dt.strftime('%m-%d %H:%M')
+        # data['timestamp'] = data['timestamp'].dt.strftime('%m-%d %H:%M')
         data.drop(columns=["maxCheckinsAllowed"],  inplace=True)
         data.to_json("jumpers.json",)
         print("refreshed")

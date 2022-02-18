@@ -19,6 +19,10 @@ $.getJSON("jumpers.json", ).done(function(results) {
 });
 
 
+luxon.Settings.defaultLocale = "de-de";
+luxon.Settings.defaultZone = "Europe/Berlin";
+luxon.Zone = new luxon.IANAZone("Europe/Berlin");
+
 
 function createChart(labels, data) {
     var canvas = document.getElementById("myChart");
@@ -32,11 +36,33 @@ function createChart(labels, data) {
                 x: {
                     grace: "2%",
                     display: true,
-
+                    offset: true,
+                    ticks: {
+                        minRotation: 30,
+                        maxRotation: 50,
+                    },
+                    type: 'time',
+                    time: {
+                        isoWeekday: true,
+                        displayFormats: {
+                            quarter: 'MMM YYYY',
+                            day: 'dd. MMM',
+                            hour: 'dd. HH:mm',
+                            minute: 'HH:mm',
+                        },
+                        tooltipFormat: 'dd. MMM HH:mm',
+                        minUnit: 'minute',
+                    },
+                    adapters: {
+                        date: {
+                            zone: "Europe/Berlin",
+                        }
+                    }
                 },
                 y: {
 
                     display: true,
+                    offset: true,
                     min: 0,
                     max: 140,
                 }
