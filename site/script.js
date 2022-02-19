@@ -1,5 +1,9 @@
 $.getJSON("jumpers.json", ).done(function(results) {
-    const labels = Object.values(results.timestamp);
+    // HACK: I don't know why I need to adjust this ... I thought that 
+    // using the timezone and local should be enough... but apparently it is not.
+    const one_hour_in_ms = 60 * 60 * 1000;
+    var labels = Object.values(results.timestamp).map(val => val - one_hour_in_ms);
+
     const checkedInC = Object.values(results.countCheckedInCustomer);
 
     const data = {
