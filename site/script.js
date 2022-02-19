@@ -10,7 +10,7 @@ $.getJSON("jumpers.json", ).done(function(results) {
         labels: labels,
         datasets: [{
             label: 'Checked in customers',
-            backgroundColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgb(255, 99, 132)',
             data: checkedInC,
             tension: 0.2
@@ -68,10 +68,15 @@ function createChart(labels, data) {
                     display: true,
                     offset: true,
                     min: 0,
-                    max: 140,
+
                 }
             },
-
+            elements: {
+                point: {
+                    radius: 5,
+                    hitRadius: 12,
+                },
+            },
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
